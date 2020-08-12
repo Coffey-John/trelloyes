@@ -1,100 +1,46 @@
+
 import React from 'react';
-import Card from './Card'
-import './index.css';
-import './Card.css';
-import './List.css';
-import './App.css';
-
-
-
-export default App;
-
+import List from './List'
+import './App.css'
+import listData from './store'
 
 
 
 function App() {
-    return (
-        <main className="App">
-            <header className="App-header">
-                <h1>Trelloyes!</h1>
-            </header>
-            <div className="App-list">
-                <section className="List">
-                    <header className="List-header">
-                        <h2>First list</h2>
-                    </header>
-                    <div className="List-cards">
-                        <Card title='First card' content='lorem impsum' />
-                        <Card title='Second card' content='lorem impsum'/>
-                        <Card title='Fifth card' content='lorem impsum'/>
-                        <Card title='Sixth card' content='lorem impsum'/>
-                        <Card title='Seventh card' content='lorem impsum'/>
-                        <Card title='Tenth card' content='lorem impsum'/>
-                        <Card title='Twelth card' content='lorem impsum'/>
-                        <Card title='Thirteenth card' content='lorem impsum'/>
-                        <button type="button" className="List-add-button">
-                            + Add Random Card
-                        </button>
-                    </div>
-                </section>
-                <section className="List">
-                    <header className="List-header">
-                        <h2>Second list</h2>
-                    </header>
-                    <div className="List-cards">
-                        <Card title='Second card' content='lorem impsum' />
-                        <Card title='Third card' content='lorem impsum'/>
-                        <Card title='Fourth card' content='lorem impsum'/>
-                        <Card title='Sixth card' content='lorem impsum'/>
-                        <Card title='Eighth card' content='lorem impsum'/>
-                        <Card title='Ninth card' content='lorem impsum'/>
-                        <Card title='Eleventh card' content='lorem impsum'/>
-                        <button type="button" className="List-add-button">
-                            + Add Random Card
-                        </button>
-                    </div>
-                </section>
-                <section className="List">
-                    <header className="List-header">
-                        <h2>Third list</h2>
-                    </header>
-                    <div className="List-cards">
-                        <Card title='First card' content='lorem impsum' />
-                        <Card title='Second card' content='lorem impsum'/>
-                        <Card title='Third card' content='lorem impsum'/>
-                        <Card title='Fourth card' content='lorem impsum'/>
-                        <Card title='Fifth card' content='lorem impsum'/>
-                        <Card title='Sixth card' content='lorem impsum'/>
-                        <Card title='Seventh card' content='lorem impsum'/>
-                        <Card title='Eighth card' content='lorem impsum'/>
-                        <Card title='Ninth card' content='lorem impsum'/>
-                        <Card title='Tenth card' content='lorem impsum'/>
-                        <Card title='Eleventh card' content='lorem impsum'/>
-                        <Card title='Twelfth card' content='lorem impsum'/>
-                        <Card title='Thirteenth card' content='lorem impsum'/>
-                        <button type="button" className="List-add-button">
-                            + Add Random Card
-                        </button>
-                    </div>
-                </section>
-                <section className="List">
-                    <header className="List-header">
-                        <h2>Fourth list</h2>
-                    </header>
-                    <div className="List-cards">
-                    <Card title='Second card' content='lorem impsum' />
-                        <Card title='Third card' content='lorem impsum'/>
-                        <Card title='Fourth card' content='lorem impsum'/>
-                        <Card title='Sixth card' content='lorem impsum'/>
-                        <Card title='Eighth card' content='lorem impsum'/>
-                        <Card title='Ninth card' content='lorem impsum'/>
-                        <Card title='Eleventh card' content='lorem impsum'/>
-                        <button type="button" className="List-add-button">
-                            + Add Random Card
-                        </button>
-                    </div>
-                </section>
-            </div>
-        </main>
-    )
+  const listComponents = listData.lists.map(list =>
+  <List
+    key={list.id}
+    header={list.header}
+  />)
+  // console.log(list)
+
+
+
+  // console.log(listData)
+  return (
+    <main className="App">
+      <header className="App-header">
+        <h1>Trelloyes!</h1>
+      </header>
+      <div className="App-list">
+       {listComponents}
+      </div>
+    </main>
+
+
+  )
 }
+
+export default App;
+
+// The App component should render markup matching the design.html: the main element, a header with the h1 and a div with class 'App-list'.
+// The App component will accept 1 prop, store.
+// The store prop is an object with 2 keys: lists and allCards.
+// lists is an array of objects.
+// allCards is an object where each key is a card's ID and the value is the card object with a title and content.
+// You'll be given a dummy STORE object to pass to your App.
+// The App should render a List component for each of the items in the store.lists array.
+// Each instance of the List component should be passed 2 props (and a key). The 2 props are header and cards.
+// The header prop is a string for the List's header.
+// The cards prop will be an array of card objects.
+// You'll need to combine the cardIds array for the list with the allCards object.

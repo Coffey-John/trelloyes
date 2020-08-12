@@ -1,38 +1,31 @@
 import React from 'react';
 import Card from './Card'
 import './List.css';
+import listData from './store'
 
-// function List(props) {
-//   return (
-//     <section className="List">
-//       <header>{props.header}</header>
-//       <div>{props.content}</div>
-//     </section>
-//   );
-// }
+function List (props) {
+// list needs to call card 8 times in the first list
+console.log(listData)
+console.log(listData.allCards.b)
+// const cardComponents = listData.allCards.map(card => <Card
+//   key={card.id}
+//   title={card.title}
+//   content={card.content}
+// />)
 
-
-
-function List(props) {
-    const array =
-
-    return (
-        <section className="List">
-            <header className="List-header">
-                <h2>First list</h2>
-            </header>
-            <div className="List-cards">
-                <Card title="First card" content="lorem impsum" />
-                <Card title="Second card" content="lorem impsum" />
-                <Card title="Fifth card" content="lorem impsum" />
-                <Card title="Sixth card" content="lorem impsum" />
-                <Card title="Seventh card" content="lorem impsum" />
-                <Card title="Tenth card" content="lorem impsum" />
-                <Card title="Twelth card" content="lorem impsum" />
-                <Card title="Thirteenth card" content="lorem impsum" />
-            </div>
-        </section>
-    );
+  console.log(props)
+  return (
+    <section className='List'>
+     <header className="List-header">
+          <h2>{props.header}</h2>
+      </header>
+      <div className="List-cards">
+        <Card />
+      </div>
+    </section>
+  )
 }
 
-export default List;
+
+
+      export default List;
