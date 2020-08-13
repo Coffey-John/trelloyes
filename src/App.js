@@ -8,11 +8,14 @@ import listData from './store'
 
 function App() {
   const listComponents = listData.lists.map(list =>
+
   <List
+
     key={list.id}
     header={list.header}
-  />)
-  // console.log(list)
+    cards={list.cardIds.map(id => listData.allCards[id])} />)
+
+
 
 
 

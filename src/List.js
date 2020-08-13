@@ -5,13 +5,12 @@ import listData from './store'
 
 function List (props) {
 // list needs to call card 8 times in the first list
-console.log(listData)
-console.log(listData.allCards.b)
-// const cardComponents = listData.allCards.map(card => <Card
-//   key={card.id}
-//   title={card.title}
-//   content={card.content}
-// />)
+console.log(props)
+const cardComponents = props.cards.map(card => <Card
+  key={card.id}
+  title={card.title}
+  content={card.content}
+/>)
 
   console.log(props)
   return (
@@ -20,7 +19,7 @@ console.log(listData.allCards.b)
           <h2>{props.header}</h2>
       </header>
       <div className="List-cards">
-        <Card />
+        {cardComponents}
       </div>
     </section>
   )
