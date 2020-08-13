@@ -7,7 +7,7 @@ function Card (props) {
 <div className="Card">
   <button type="button">delete</button>
   <h3>{props.title}</h3>
-  <p>{props.title}</p>
+  <p>{props.content}</p>
 </div>
 
   )
